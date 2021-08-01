@@ -9,15 +9,12 @@ const signin = require("./controllers/signin");
 const profile = require("./controllers/profile");
 const image = require("./controllers/image");
 const PORT = process.env.PORT || 3000;
-
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
 const db = knex({
-  // Enter your own database information here based on what you created
   client: "pg",
   connection: {
-    host: "127.0.0.1",
-    user: "postgres",
-    password: "test",
-    database: "smartbrain",
+    connectionString: process.env.DATABASE_URL,
+    ssl: true,
   },
 });
 

@@ -8,6 +8,7 @@ const register = require("./controllers/register");
 const signin = require("./controllers/signin");
 const profile = require("./controllers/profile");
 const image = require("./controllers/image");
+const PORT = process.env.PORT || 3000;
 
 const db = knex({
   // Enter your own database information here based on what you created
@@ -47,6 +48,6 @@ app.post("/imageurl", (req, res) => {
   image.handleApiCall(req, res);
 });
 
-app.listen(3000, () => {
+app.listen(PORT, () => {
   console.log("port 3000 is working ");
 });
